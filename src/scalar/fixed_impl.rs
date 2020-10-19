@@ -789,11 +789,11 @@ macro_rules! impl_fixed_type(
             }
 
             #[inline]
-            fn copysign(self, rhs: Self) -> Self {
-                if self >= Self::zero() {
-                    rhs.abs()
+            fn copysign(self, sign: Self) -> Self {
+                if sign >= Self::zero() {
+                    self.abs()
                 } else {
-                    -rhs.abs()
+                    -self.abs()
                 }
             }
 
